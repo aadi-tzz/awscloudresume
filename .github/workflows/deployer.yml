@@ -21,8 +21,8 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1 # Change this if your bucket is in a different region
+        aws-region: ap-south-1 # Change this if your bucket is in a different region
 
     # 4. The Action: Copy files to S3
     - name: Copy files to the S3 website bucket
-      run: aws s3 sync . s3://YOUR-BUCKET-NAME-HERE --delete
+      run: aws s3 sync . s3://my-resume-bucket-aadi --delete
