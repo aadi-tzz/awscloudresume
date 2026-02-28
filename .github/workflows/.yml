@@ -1,0 +1,28 @@
+name: Upload Website to S3
+
+# 1. The Trigger: Wake up when code is pushed to the "main" branch
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  deploy:
+    # 2. The Environment: Boot up a temporary Linux server
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # 3. The Login: Securely log into AWS
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1 # Change this if your bucket is in a different region
+
+    # 4. The Action: Copy files to S3
+    - name: Copy files to the S3 website bucket
+      run: aws s3 sync . s3://YOUR-BUCKET-NAME-HERE --delete
