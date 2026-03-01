@@ -34,7 +34,9 @@
         // Paste your API Gateway URL right here inside the quotes
         const apiUrl = 'https://f4sqymtxed.execute-api.ap-south-1.amazonaws.com/production';
 
-        fetch(apiUrl)
+        fetch(apiUrl,{
+            method: "POST"
+        })
             .then(response => response.json())
             .then(data => {
                 // Update "data.count" if your Lambda uses a different word
@@ -49,4 +51,5 @@
 </body>
 
 </html>
+
 
