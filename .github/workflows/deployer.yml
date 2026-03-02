@@ -17,7 +17,7 @@ jobs:
 
     # 3. The Login: Securely log into AWS
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v2
+      uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -26,3 +26,7 @@ jobs:
     # 4. The Action: Copy files to S3
     - name: Copy files to the S3 website bucket
       run: aws s3 sync . s3://my-resume-bucket-aadi --delete
+    
+    # 5. Run the native AWS CLI command to invalidate the cache
+    - name: Invalidate CloudFront Cache
+      run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
