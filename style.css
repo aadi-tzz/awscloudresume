@@ -1,0 +1,80 @@
+/* 1. Resetting default browser margins so we have a clean slate */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. Global Page Styling */
+body {
+    font-family: 'Inter', sans-serif; /* The modern Google Font */
+    background-color: #f4f7f6; /* A very light, professional grey background */
+    color: #333333; /* Dark grey text for readability */
+    line-height: 1.6;
+}
+
+/* 3. The Top Header */
+header {
+    background-color: #1a202c; /* Sleek dark slate color */
+    color: #ffffff;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 4. The Main Content Wrapper */
+main {
+    max-width: 800px; /* Keeps the site from stretching too wide on big screens */
+    margin: -2rem auto 2rem auto; /* Centers the content and overlaps the header slightly */
+    padding: 0 20px;
+}
+
+/* 5. The Individual Sections (Cards) */
+section {
+    background: #ffffff;
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* A soft, modern shadow */
+    transition: transform 0.2s ease-in-out; /* Smooth animation setup */
+}
+
+/* Makes the cards "pop" up slightly when you hover over them */
+section:hover {
+    transform: translateY(-3px); 
+}
+
+section h2 {
+    color: #2b6cb0; /* A clean tech-blue accent color */
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #edf2f7; /* Underlines the section titles */
+    padding-bottom: 0.5rem;
+}
+
+section ul {
+    list-style-position: inside;
+    margin-top: 0.5rem;
+}
+
+section li {
+    margin-bottom: 0.5rem;
+}
+
+/* 6. The Footer & Visitor Counter */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #1a202c;
+    color: #ffffff;
+    margin-top: 3rem;
+}
+
+#visitor-counter {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #63b3ed; /* Bright blue to make the counter stand out */
+}
