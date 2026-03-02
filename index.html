@@ -1,55 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My AWS Cloud Project</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f4f4f9;
-        }
-        .container {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Joshi | Cloud & AI Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>Aditya Joshi</h1>
+        <p>Cloud, AI/ML & Cybersecurity</p>
+    </header>
 
-    <div class="container">
-        <h1>Welcome to My Serverless Architecture</h1>
-        <p>This page is hosted on Amazon S3.</p>
-        
-        <h3>Visitor Count: <span id="counter">Loading...</span></h3>
-    </div>
+    <main>
+        <section id="about-me">
+            <h2>About Me</h2>
+            <p>B.Tech CSE student specializing in scalable cloud architectures and intelligent AI systems. Focused on building practical solutions from the ground up.</p>
+        </section>
+
+        <section id="cloud-architecture">
+            <h2>Cloud Architecture</h2>
+            <p>This resume is hosted on AWS using S3, CloudFront, and Route 53, with a serverless backend powered by API Gateway, Lambda, and DynamoDB.</p>
+        </section>
+
+        <section id="ai-portfolio">
+            <h2>AI Portfolio</h2>
+            <ul>
+                <li><strong>Cupid's Agent:</strong> A logic-based matchmaking system.</li>
+                <li><strong>The Red Flag Detector:</strong> A sentiment analysis tool for dating bios.</li>
+            </ul>
+        </section>
+
+        <section id="cybersecurity-labs">
+            <h2>Cybersecurity Labs</h2>
+            <p>Documenting my explorations into network security, threat detection, and ethical hacking.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Visitor Count: <span id="visitor-counter">Loading...</span></p>
+    </footer>
 
     <script>
-        // Paste your API Gateway URL right here inside the quotes
         const apiUrl = 'https://f4sqymtxed.execute-api.ap-south-1.amazonaws.com/production';
 
-        fetch(apiUrl,{
+        fetch(apiUrl, {
             method: "POST"
         })
             .then(response => response.json())
             .then(data => {
-                // Update "data.count" if your Lambda uses a different word
-                document.getElementById('counter').innerText = data.views; 
+                // Pointed this to the new 'visitor-counter' ID in the footer
+                document.getElementById('visitor-counter').innerText = data.views; 
             })
             .catch(error => {
                 console.error('Error fetching visitor count:', error);
-                document.getElementById('counter').innerText = "Error loading count";
+                document.getElementById('visitor-counter').innerText = "Error loading count";
             });
     </script>
-
 </body>
-
 </html>
-
-
